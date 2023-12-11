@@ -10,8 +10,12 @@ export const Property = (props: PropertyType) => {
 
     return (
         <div className={s.propertyWrapper}>
-            <span className={s.propertyTitle}>{`${props.propertyTitle}:`}</span>
-            <span className={s.propertyValue}>{props.propertyValue}</span>
+            <div className={s.infoWrapper}>
+                <span className={s.propertyTitle}>{`${props.propertyTitle}:`}</span>
+                <span className={s.propertyValue}>{props.propertyValue}</span>
+            </div>
+            <button>upgrade</button>
+
         </div>
     );
 };

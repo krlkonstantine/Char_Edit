@@ -5,18 +5,21 @@ import s from './charPropreties.module.scss'
 import {Property} from "@/components/CharPropreties/property/property";
 export const CharPropreties = () => {
     return (
-        <div className={s.characterWrapper}>
-          <div className={s.mainPropertiesWrapper}>
-              <Property propertyTitle={'power'} propertyValue={0}/>
-              <Property propertyTitle={'dexterity'} propertyValue={0}/>
-              <Property propertyTitle={'inteligence'} propertyValue={0}/>
-              <Property propertyTitle={'charisma'} propertyValue={0}/>
-          </div>
-          <div className={s.secondaryPropertiesWrapper}>
-              <Property propertyTitle={'vitalForce'} propertyValue={0}/>
-              <Property propertyTitle={'dodging'} propertyValue={0}/>
-              <Property propertyTitle={'vigor'} propertyValue={0}/>
-          </div>
+        <div className={s.skillsandPropertiesWrapper}>
+            <div className={s.propertiesWrapper}>
+                <div className={s.mainPropertiesWrapper}>
+                    <Property propertyTitle={'power'} propertyValue={0}/>
+                    <Property propertyTitle={'dexterity'} propertyValue={0}/>
+                    <Property propertyTitle={'inteligence'} propertyValue={0}/>
+                    <Property propertyTitle={'charisma'} propertyValue={0}/>
+                </div>
+                <div className={s.secondaryPropertiesWrapper}>
+                    <Property propertyTitle={'vitalForce'} propertyValue={0}/>
+                    <Property propertyTitle={'dodging'} propertyValue={0}/>
+                    <Property propertyTitle={'vigor'} propertyValue={0}/>
+                </div>
+            </div>
+
           <div className={s.skillsWrapper}>
               <Property propertyTitle={'strike'} propertyValue={0}/>
               <Property propertyTitle={'stealth'} propertyValue={0}/>
