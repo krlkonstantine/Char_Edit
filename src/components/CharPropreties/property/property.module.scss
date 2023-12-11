@@ -1,0 +1,16 @@
+.propertyWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 70px;
+
+  .propertyTitle{
+    font-size: 25px;
+    font-weight: 600;
+    color: blueviolet;
+  }
+  .propertyValue{
+    color: blue;
+  }
+}
