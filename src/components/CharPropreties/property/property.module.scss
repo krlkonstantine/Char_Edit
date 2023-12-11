@@ -2,15 +2,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  flex-direction: column;
+  width: 200px;
   height: 70px;
+  .infoWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .propertyTitle{
+      font-size: 25px;
+      font-weight: 600;
+      color: blueviolet;
+    }
+    .propertyValue{
+      color: blue;
+    }
+  }
+ button{
+   width: 80px;
+   color: fuchsia;
+   background-color: dimgrey;
+ }
 
-  .propertyTitle{
-    font-size: 25px;
-    font-weight: 600;
-    color: blueviolet;
-  }
-  .propertyValue{
-    color: blue;
-  }
 }
