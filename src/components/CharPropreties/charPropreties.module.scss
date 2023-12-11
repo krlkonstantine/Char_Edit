@@ -1,0 +1,9 @@
+.skillsandPropertiesWrapper {
+  display: flex;
+  align-items: center;
+
+  .propertiesWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
