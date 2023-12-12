@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 import {selectCharState, setCharState} from "@/state/character.slice";
 import {useDispatch, useSelector} from "react-redux";
 import {CharAppearance} from "@/components/charcater/character";
-import {CharPropreties} from "@/components/CharPropreties/CharPropreties";
+import {CharProperties} from "@/components/CharPropreties/CharProperties";
 
 
 const inter = Inter({subsets: ['latin']})
@@ -25,7 +25,7 @@ export default function Home() {
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
                 <CharAppearance/>
-                <CharPropreties/>
+                <CharProperties/>
             </main>
         </>
     )
