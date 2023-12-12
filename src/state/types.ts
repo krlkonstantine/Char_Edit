@@ -22,7 +22,7 @@ export const secondaryCharParams: CharPropertyType[] = [
     {title: 'dodging', level: basicCharParams[1].level + 10, id: v1()},
     {title: 'vigor', level: basicCharParams[2].level + basicCharParams[3].level, id: v1()},
 ]
-type BasicCharParams = {
+export type BasicCharParams = {
     power: number
     dexterity: number
     intelligence: number

@@ -42,6 +42,7 @@ export const charSkills: SkillType[] = [
 // }
 
 // Initial state
+
 const initialState: CharacterType = {
     name: '',
     charParams: {

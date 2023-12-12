@@ -34,16 +34,16 @@ export const CharProperties = () => {
             </div>
 
             <div className={s.skillsWrapper}>
-                <Property propertyTitle={'Strike'} propertyValue={skills.strike} skillKey={'strike'} upgradeFnc={upgradeSkill} />
-                <Property propertyTitle={'Stealth'} propertyValue={skills.stealth} skillKey={'stealth'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Archery'} propertyValue={skills.archery} skillKey={'archery'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Trainability'} propertyValue={skills.trainability} skillKey={'trainability'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Survival'} propertyValue={skills.survival} skillKey={'survival'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Healing'} propertyValue={skills.healing} skillKey={'healing'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Harassment'} propertyValue={skills.harassment} skillKey={'harassment'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Discernment'} propertyValue={skills.discernment} skillKey={'discernment'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Appearance'} propertyValue={skills.appearance} skillKey={'appearance'} upgradeFnc={upgradeSkill}/>
-                <Property propertyTitle={'Manipulation'} propertyValue={skills.manipulation} skillKey={'manipulation'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Strike'} propertyValue={skills.strike} skillKey={'strike'} upgradeFnc={upgradeSkill} isSkill={true} />
+                <Property propertyTitle={'Stealth'} propertyValue={skills.stealth} skillKey={'stealth'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Archery'} propertyValue={skills.archery} skillKey={'archery'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Trainability'} propertyValue={skills.trainability} skillKey={'trainability'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Survival'} propertyValue={skills.survival} skillKey={'survival'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Healing'} propertyValue={skills.healing} skillKey={'healing'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Harassment'} propertyValue={skills.harassment} skillKey={'harassment'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Discernment'} propertyValue={skills.discernment} skillKey={'discernment'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Appearance'} propertyValue={skills.appearance} skillKey={'appearance'} upgradeFnc={upgradeSkill} isSkill={true}/>
+                <Property propertyTitle={'Manipulation'} propertyValue={skills.manipulation} skillKey={'manipulation'} upgradeFnc={upgradeSkill} isSkill={true}/>
             </div>
         </div>
     );
