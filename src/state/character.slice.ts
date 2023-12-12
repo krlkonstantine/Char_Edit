@@ -93,22 +93,19 @@ const initialState: CharacterType = {
 // };
 
 
-// Define HYDRATE action
 const hydrateAction = createAction<Partial<CharacterType>>(HYDRATE);
 
-// Actual Slice
 export const charSlice = createSlice({
     name: "char",
     initialState,
     reducers: {
-        setCharState(state, action: PayloadAction<boolean>) {
-            //state.charParams = action.payload;
-        },
         updateName(state, action: PayloadAction<string>) {
             state.name = action.payload
         },
         getDamage(state, action: PayloadAction<string>) {
-            state.charParams.secondaryParams.vitalForce = state.charParams.secondaryParams.vitalForce - 1
+            debugger
+            let secondParams = state.charParams.secondaryParams
+            secondParams.vitalForce = secondParams.vitalForce - 1
         },
         upgradePower(state, action: PayloadAction<string>): void {
             let basicParams = state.charParams.basicParams
@@ -134,12 +131,6 @@ export const charSlice = createSlice({
             let basicParams = state.charParams.basicParams
             state.charParams.basicParams.charisma += 1
         },
-        // upgradeBasicParam(state, action: PayloadAction<string>): void {
-        //     state.charParams.basicParams.map(param => param.id === action.payload ? param.level = param.level + 1 : param)
-        // },
-        // upgradeSecondaryParam(state, action: PayloadAction<string>): void {
-        //     state.charParams.secondaryParams.map(param => param.id === action.payload ? param.level = param.level + 1 : param)
-        // },
         upgradeSkill(state, action: PayloadAction<string>): void {
             debugger
             let skills = state.charParams.skills

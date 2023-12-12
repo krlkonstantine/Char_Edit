@@ -9,7 +9,8 @@ type PropertyType = {
     propertyValue: number
     upgradeFnc?: (id: string) => { type: string, payload: string }
     isSkill?: boolean
-    skillKey?:string
+    skillKey?: string
+    isVitalForce?: boolean
 }
 export const Property = (props: PropertyType) => {
     const basicParams = useSelector((state: AppState) => state.char.charParams.basicParams);
@@ -66,7 +67,9 @@ export const Property = (props: PropertyType) => {
             </div>
             {props.upgradeFnc &&
                 <button onClick={upgradeProperty} disabled={isDisabled}>
-                    {props.isSkill ? 'train' : 'upgrade'}
+                    {props.isSkill
+                        ? 'train'
+                        : (props.isVitalForce ? 'get damage' : 'upgrade')}
                 </button>}
 
         </div>

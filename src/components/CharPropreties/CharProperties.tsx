@@ -9,7 +9,8 @@ import {
     upgradeDexterity,
     upgradeIntelligence,
     upgradePower,
-    upgradeSkill
+    upgradeSkill,
+    getDamage
 } from "@/state/character.slice";
 
 export const CharProperties = () => {
@@ -27,7 +28,7 @@ export const CharProperties = () => {
                     <Property propertyTitle={'Charisma'} propertyValue={basicParams.charisma} upgradeFnc={upgradeCharisma} />
                 </div>
                 <div className={s.secondaryPropertiesWrapper}>
-                    <Property propertyTitle={'Vital Force'} propertyValue={secondParams.vitalForce} />
+                    <Property propertyTitle={'Vital Force'} propertyValue={secondParams.vitalForce} isVitalForce={true} upgradeFnc={getDamage} />
                     <Property propertyTitle={'Dodging'} propertyValue={secondParams.dodging} />
                     <Property propertyTitle={'Vigor'} propertyValue={secondParams.vigor} />
                 </div>
