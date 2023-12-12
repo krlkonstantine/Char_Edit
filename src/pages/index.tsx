@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import {selectCharState, setCharState} from "@/state/character.slice";
+import {selectCharState} from "@/state/character.slice";
 import {useDispatch, useSelector} from "react-redux";
 import {CharAppearance} from "@/components/charcater/character";
 import {CharProperties} from "@/components/CharPropreties/CharProperties";
