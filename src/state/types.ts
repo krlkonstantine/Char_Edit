@@ -35,16 +35,17 @@ type SecondaryCharParams = {
 }
 
 type CharSkills = {
-    strike: SkillLevel
-    stealth: SkillLevel
-    archery: SkillLevel
-    trainability: SkillLevel
-    survival: SkillLevel
-    healing: SkillLevel
-    harassment: SkillLevel
-    discernment: SkillLevel
-    appearance: SkillLevel
-    manipulation: SkillLevel
+    [key: string]: SkillLevel;
+    strike: SkillLevel;
+    stealth: SkillLevel;
+    archery: SkillLevel;
+    trainability: SkillLevel;
+    survival: SkillLevel;
+    healing: SkillLevel;
+    harassment: SkillLevel;
+    discernment: SkillLevel;
+    appearance: SkillLevel;
+    manipulation: SkillLevel;
 }
 
 export type CharPropertyType = {

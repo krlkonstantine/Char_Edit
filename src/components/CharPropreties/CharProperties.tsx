@@ -4,21 +4,23 @@ import s from './charPropreties.module.scss'
 import {Property} from "@/components/CharPropreties/property/property";
 import {useSelector} from "react-redux";
 import {AppState} from "@/state/store";
-import {upgradeCharisma, upgradeDexterity, upgradeIntelligence, upgradePower} from "@/state/character.slice";
+import {
+    upgradeCharisma,
+    upgradeDexterity,
+    upgradeIntelligence,
+    upgradePower,
+    upgradeSkill
+} from "@/state/character.slice";
 
 export const CharProperties = () => {
 
     const basicParams = useSelector((state: AppState) => state.char.charParams.basicParams);
     const secondParams = useSelector((state: AppState) => state.char.charParams.secondaryParams);
-    const skills = useSelector((state: AppState) => state.char.charParams);
-    console.log(basicParams)
+    const skills = useSelector((state: AppState) => state.char.charParams.skills);
     return (
         <div className={s.skillsandPropertiesWrapper}>
             <div className={s.propertiesWrapper}>
                 <div className={s.mainPropertiesWrapper}>
-                    {/*{charParams.basicParams.map(param => <Property key={param.id} upgradeFnc={upgradeBasicParam}*/}
-                    {/*                                               propertyId={param.id} propertyTitle={param.title}*/}
-                    {/*                                               propertyValue={param.level}/>)}*/}
                     <Property propertyTitle={'Power'} propertyValue={basicParams.power} upgradeFnc={upgradePower} />
                     <Property propertyTitle={'Dexterity'} propertyValue={basicParams.dexterity} upgradeFnc={upgradeDexterity} />
                     <Property propertyTitle={'Intelligence'} propertyValue={basicParams.intelligence} upgradeFnc={upgradeIntelligence} />
@@ -32,15 +34,16 @@ export const CharProperties = () => {
             </div>
 
             <div className={s.skillsWrapper}>
-                {/*{charParams.skills.map(skill => <Property key={skill.id} isSkill={true} propertyId={skill.id}*/}
-                {/*                                          upgradeFnc={upgradeSkill}*/}
-                {/*                                          propertyTitle={skill.title} propertyValue={skill.level}/>)}*/}
-                <h1>skill</h1>
-                <h1>skill</h1>
-                <h1>skill</h1>
-                <h1>skill</h1>
-                <h1>skill</h1>
-                <h1>skill</h1>
+                <Property propertyTitle={'Strike'} propertyValue={skills.strike} skillKey={'strike'} upgradeFnc={upgradeSkill} />
+                <Property propertyTitle={'Stealth'} propertyValue={skills.stealth} skillKey={'stealth'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Archery'} propertyValue={skills.archery} skillKey={'archery'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Trainability'} propertyValue={skills.trainability} skillKey={'trainability'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Survival'} propertyValue={skills.survival} skillKey={'survival'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Healing'} propertyValue={skills.healing} skillKey={'healing'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Harassment'} propertyValue={skills.harassment} skillKey={'harassment'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Discernment'} propertyValue={skills.discernment} skillKey={'discernment'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Appearance'} propertyValue={skills.appearance} skillKey={'appearance'} upgradeFnc={upgradeSkill}/>
+                <Property propertyTitle={'Manipulation'} propertyValue={skills.manipulation} skillKey={'manipulation'} upgradeFnc={upgradeSkill}/>
             </div>
         </div>
     );

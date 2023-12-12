@@ -139,14 +139,14 @@ export const charSlice = createSlice({
         // upgradeSecondaryParam(state, action: PayloadAction<string>): void {
         //     state.charParams.secondaryParams.map(param => param.id === action.payload ? param.level = param.level + 1 : param)
         // },
-        // upgradeSkill(state, action: PayloadAction<string>): void {
-        //     state.charParams.skills.map(skill =>
-        //         skill.id === action.payload
-        //             ? {...skill, level: skill.level >= 4 ? 5 : skill.level + 1}
-        //             //skill level can not be more than 5, so here we check if the value doesn't exceed the maximum
-        //             : skill
-        //     )
-        // },
+        upgradeSkill(state, action: PayloadAction<string>): void {
+            debugger
+            let skills = state.charParams.skills
+            const skillName = action.payload
+            if (skillName in skills) {
+                skills[skillName] += 1;
+            }
+        },
 
     },
     extraReducers: (builder) => {
@@ -159,7 +159,7 @@ export const charSlice = createSlice({
     },
 });
 
-export const {setCharState, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
+export const {upgradeSkill, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
 
 export const selectCharState = (state: AppState) => state.char;
 

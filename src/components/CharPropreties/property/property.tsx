@@ -8,14 +8,17 @@ type PropertyType = {
     //propertyId: string
     upgradeFnc?: (id: string) => { type: string, payload: string }
     isSkill?: boolean
+    skillKey?:string
 }
 export const Property = (props: PropertyType) => {
 
     const dispatch = useDispatch()
 
     const upgradeProperty = () => {
-        if (props.upgradeFnc) {
-            dispatch(props.upgradeFnc('props.propertyId'));
+        if (props.upgradeFnc && props.skillKey) {
+            dispatch(props.upgradeFnc(props.skillKey));
+        } else if (props.upgradeFnc) {
+            dispatch(props.upgradeFnc('props.skillKey'));
         }
     }
 
