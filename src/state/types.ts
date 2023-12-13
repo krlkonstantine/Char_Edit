@@ -10,6 +10,7 @@ export type CharacterType = {
         secondaryParams: SecondaryCharParams
         skills: CharSkills
     }
+    loadedCharacterData: any
 }
 
 export const basicCharParams: CharPropertyType[] = [

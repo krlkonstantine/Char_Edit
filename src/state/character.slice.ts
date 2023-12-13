@@ -1,34 +1,67 @@
-import {createAction, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAction, createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {AppState} from "./store";
 import {HYDRATE} from "next-redux-wrapper";
 import {CharacterType} from "@/state/types";
 import {UpgradeType} from "@/components/CharPropreties/property/property";
 
 
-// export const basicCharParams: CharPropertyType[] = [
-//     {title: 'power', level: 0, id: v1()},
-//     {title: 'dexterity', level: 0, id: v1()},
-//     {title: 'intelligence', level: 0, id: v1()},
-//     {title: 'charisma', level: 0, id: v1()},
-// ]
-// export const secondaryCharParams: CharPropertyType[] = [
-//     {title: 'vitalForce', level: basicCharParams[0].level + 3, id: v1()},
-//     {title: 'dodging', level: basicCharParams[1].level + 10, id: v1()},
-//     {title: 'vigor', level: basicCharParams[2].level + basicCharParams[3].level, id: v1()},
-// ]
-//
-// export const charSkills: SkillType[] = [
-//     {title: 'strike', level: 0, id: v1()},
-//     {title: 'stealth', level: 0, id: v1()},
-//     {title: 'archery', level: 0, id: v1()},
-//     {title: 'trainability', level: 0, id: v1()},
-//     {title: 'survival', level: 0, id: v1()},
-//     {title: 'healing', level: 0, id: v1()},
-//     {title: 'harassment', level: 0, id: v1()},
-//     {title: 'discernment', level: 0, id: v1()},
-//     {title: 'appearance', level: 0, id: v1()},
-//     {title: 'manipulation', level: 0, id: v1()},
-// ]
+// Функция для импорта данных из файла
+export const importCharacter = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const importedCharacter = JSON.parse(event.target.result);
+                resolve(importedCharacter);
+            } catch (error) {
+                reject(error);
+            }
+        };
+        reader.readAsText(file);
+    });
+};
+
+export const loadCharacter = createAsyncThunk(
+    "char/loadCharacter",
+    async (_, { dispatch, rejectWithValue }) => {
+        try {
+            const fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.accept = ".json";
+            fileInput.addEventListener("change", async (event) => {
+                if (event.target) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        return await importCharacter(file);
+                    }
+                }
+            });
+
+            fileInput.click();
+        } catch (error) {
+            console.error("Failed to load character:", error);
+            return rejectWithValue(error);
+        }
+    }
+);
+
+export const saveCharacter = createAsyncThunk(
+    "char/saveCharacter",
+    async (character: CharacterType) => {
+        const json = JSON.stringify(character);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'character.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        return character;
+    }
+)
+
 
 
 const initialState: CharacterType = {
@@ -59,7 +92,8 @@ const initialState: CharacterType = {
             appearance: 0,
             manipulation: 0
         }
-    }
+    },
+    loadedCharacterData: null
 }
 
 const hydrateAction = createAction<Partial<CharacterType>>(HYDRATE);
@@ -68,14 +102,14 @@ export const charSlice = createSlice({
     name: "char",
     initialState,
     reducers: {
-        updateName(state, action: PayloadAction<{value:string}>) {
+        updateName(state, action: PayloadAction<{ value: string }>) {
             debugger
             return {
                 ...state,
                 name: action.payload.value
             }
         },
-        choseGender(state, action: PayloadAction<{value: 'male' | 'female'}>) {
+        choseGender(state, action: PayloadAction<{ value: 'male' | 'female' }>) {
             return {
                 ...state,
                 gender: action.payload.value
@@ -212,19 +246,43 @@ export const charSlice = createSlice({
                     : (skills[skillName] -= 1, updatedState.charParams.points += 1)
             }
         },
+        loadCharacterFulfilled(state, action: PayloadAction<{ data: CharacterType }>) {
+            return {
+                ...state,
+                ...action.payload.data,
+                loadedCharacterData: action.payload.data,
+            };
+        },
+
 
     },
     extraReducers: (builder) => {
-        builder.addCase(hydrateAction, (state, action) => {
-            return {
-                ...state,
-                ...action.payload,
-            };
-        });
+        builder
+            .addCase(hydrateAction, (state, action) => {
+                return {
+                    ...state,
+                    ...action.payload,
+                };
+            })
+            .addCase(loadCharacter.fulfilled, (state, action) => {
+                return charSlice.caseReducers.loadCharacterFulfilled(state, action);
+
+            })
+            .addCase(saveCharacter.fulfilled, (state, action) => {
+                console.log('Character saved:', action.payload);
+                return {
+                    ...state,
+                    lastSavedCharacter: action.payload,
+                };
+            })
+            .addCase(saveCharacter.rejected, (state, action) => {
+                console.error("Failed to save character:", action.error);
+                return state;
+            })
     },
 });
 
-export const {resetUserData,choseGender, upgradeSkill, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
+export const {loadCharacterFulfilled, resetUserData, choseGender, upgradeSkill, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
 
 export const selectCharState = (state: AppState) => state.char;
 

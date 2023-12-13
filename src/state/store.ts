@@ -1,12 +1,14 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { charSlice } from "./character.slice";
 import { createWrapper } from "next-redux-wrapper";
+import {thunk} from "redux-thunk";
 
 const makeStore = () =>
     configureStore({
         reducer: {
             [charSlice.name]: charSlice.reducer,
         },
+            middleware: getDefaultMiddleware => getDefaultMiddleware(),
         devTools: true,
     });
 

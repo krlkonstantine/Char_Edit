@@ -7,6 +7,7 @@ import {AppState} from "@/state/store";
 import {ToggleGroupDemo} from "@/components/tabSwitcher/tabSwitcher";
 import {EditableSpan} from "@/components/editableSpan/EditableSpan";
 import {resetUserData, updateName} from "@/state/character.slice";
+import CharacterManagement from "@/components/exportImport/exportImport";
 
 export const GeneralInfo = () => {
     const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export const GeneralInfo = () => {
             <EditableSpan value={generalInfo.name} onChange={onNameChangeHandler}/>
             <ToggleGroupDemo/>
             <button onClick={resetHandler}>Reset User</button>
+            <CharacterManagement character={generalInfo}/>
         </div>
     );
 }
