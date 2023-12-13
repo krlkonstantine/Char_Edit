@@ -32,7 +32,7 @@ import {UpgradeType} from "@/components/CharPropreties/property/property";
 
 
 const initialState: CharacterType = {
-    name: '',
+    name: 'Enter your name',
     gender: 'male',
     charParams: {
         points: 17,
@@ -68,12 +68,23 @@ export const charSlice = createSlice({
     name: "char",
     initialState,
     reducers: {
-        updateName(state, action: PayloadAction<string>) {
-            state.name = action.payload
+        updateName(state, action: PayloadAction<{value:string}>) {
+            debugger
+            return {
+                ...state,
+                name: action.payload.value
+            }
         },
-        getDamage(state, action: PayloadAction<{
-            type: 'dec' | 'inc'
-        }>) {
+        choseGender(state, action: PayloadAction<{value: 'male' | 'female'}>) {
+            return {
+                ...state,
+                gender: action.payload.value
+            }
+        },
+        resetUserData(state, action: PayloadAction<any>) {
+            return initialState;
+        },
+        getDamage(state, action: PayloadAction<any>) {
             let secondParams = state.charParams.secondaryParams
             secondParams.vitalForce = secondParams.vitalForce - 1
         },
@@ -213,7 +224,7 @@ export const charSlice = createSlice({
     },
 });
 
-export const {upgradeSkill, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
+export const {resetUserData,choseGender, upgradeSkill, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
 
 export const selectCharState = (state: AppState) => state.char;
 
