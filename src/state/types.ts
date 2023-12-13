@@ -3,7 +3,8 @@ import {v1} from "uuid";
 
 export type CharacterType = {
     name: string
-    //gender: "male" | 'female'
+    gender: "male" | 'female'
+    points: number
     charParams: {
         basicParams: BasicCharParams
         secondaryParams: SecondaryCharParams
@@ -35,17 +36,17 @@ type SecondaryCharParams = {
 }
 
 type CharSkills = {
-    [key: string]: SkillLevel;
-    strike: SkillLevel;
-    stealth: SkillLevel;
-    archery: SkillLevel;
-    trainability: SkillLevel;
-    survival: SkillLevel;
-    healing: SkillLevel;
-    harassment: SkillLevel;
-    discernment: SkillLevel;
-    appearance: SkillLevel;
-    manipulation: SkillLevel;
+    [key: string]: number;
+    strike: number;
+    stealth: number;
+    archery: number;
+    trainability: number;
+    survival: number;
+    healing: number;
+    harassment: number;
+    discernment: number;
+    appearance: number;
+    manipulation: number;
 }
 
 export type CharPropertyType = {
@@ -55,7 +56,7 @@ export type CharPropertyType = {
 }
 
 export type SkillType = Omit<CharPropertyType, 'level'> & {
-    level: SkillLevel
+    level: number
 }
 
 

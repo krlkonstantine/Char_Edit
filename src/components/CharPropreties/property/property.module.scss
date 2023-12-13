@@ -1,29 +1,56 @@
-.propertyWrapper{
+.propertyWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
   width: 200px;
   height: 70px;
-  .infoWrapper{
+  opacity: 0.8;
+
+  .propertyTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: blueviolet;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .propertyValue {
+      color: lawngreen;
+      font-size: 17px;
+    }
+    .changeProperty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 30px;
+      height: 30px;;
+      color: fuchsia;
+      background-color: dimgrey;
+
+      .incDec{
+        background-color: cadetblue;
+
+        &:hover {
+          color: green;
+          background-color: yellow;
+        }
+      }
+    }
+
+  }
+
+
+  .getDamageBtn {
     display: flex;
     justify-content: center;
     align-items: center;
-    .propertyTitle{
-      font-size: 25px;
-      font-weight: 600;
-      color: blueviolet;
-    }
-    .propertyValue{
-      color: lawngreen;
-      font-size: 25px;
-      margin-left: 6px;
-    }
+    width: 80px;
+    color: fuchsia;
+    background-color: dimgrey;
   }
- button{
-   width: 80px;
-   color: fuchsia;
-   background-color: dimgrey;
- }
 
 }
