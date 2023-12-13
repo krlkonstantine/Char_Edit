@@ -18,9 +18,9 @@ type PropertyType = {
 export const Property = (props: PropertyType) => {
     const basicParams = useSelector((state: AppState) => state.char.charParams.basicParams);
     const dispatch = useDispatch()
+    const points = useSelector((state: AppState) => state.char.charParams.points);
 
     const upgradeProperty = (type: 'dec' | 'inc') => {
-        debugger
         if (props.upgradeFnc && props.skillKey) {
             dispatch(props.upgradeFnc({id: props.skillKey, type}));
         } else if (props.upgradeFnc) {
@@ -29,9 +29,9 @@ export const Property = (props: PropertyType) => {
     }
 
     function disableTrainBtn(skillTitle: string, propertyValue: number, basicParams: BasicCharParams): boolean {
-        // if (propertyValue >= 5) {
-        //     return true;
-        // }
+        if (points === 0) {
+            return true;
+        }
         //this is to disable increase buttons. Here we also
         // can see which skill corresponds to which basic parameter
         switch (skillTitle) {
@@ -64,9 +64,9 @@ export const Property = (props: PropertyType) => {
     //we cant decrease progress less than 0, because it will
     //be possible for users to gain points for decrease
     const isDisabledForUpgrade =
-        props.isSkill
+        (props.isSkill
             ? disableTrainBtn(props.skillKey || '', props.propertyValue, basicParams)
-            : props.propertyValue >= 5;
+            : props.propertyValue >= 5) || (!props.isSkill && points <=1)
     //and we cant upgrade more than 5 steps, that's the limit.
     //This check is placed here as in future it can be necessary
     //to increase the limit. In such case reducer can not be modified

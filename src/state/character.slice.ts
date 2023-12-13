@@ -34,8 +34,8 @@ import {UpgradeType} from "@/components/CharPropreties/property/property";
 const initialState: CharacterType = {
     name: '',
     gender: 'male',
-    points: 17,
     charParams: {
+        points: 17,
         basicParams: {
             power: 0,
             dexterity: 0,
@@ -71,43 +71,55 @@ export const charSlice = createSlice({
         updateName(state, action: PayloadAction<string>) {
             state.name = action.payload
         },
-        getDamage(state, action: PayloadAction<{ type: 'dec' | 'inc' }>) {
+        getDamage(state, action: PayloadAction<{
+            type: 'dec' | 'inc'
+        }>) {
             let secondParams = state.charParams.secondaryParams
             secondParams.vitalForce = secondParams.vitalForce - 1
         },
-        //these four reducers for upgrade power, dexterity intellect and charisma
-        //can be unified into a single one, but I decided that this will be too complex
-        //due to secondary effects on changing second params according to basic ones
-        upgradePower(state, action: PayloadAction<{type: UpgradeType }>): void {
+        upgradePower(state, action: PayloadAction<{
+            type: UpgradeType
+        }>): void {
             debugger
             let basicParams = state.charParams.basicParams
             let secondParams = state.charParams.secondaryParams
             let skills = state.charParams.skills
+            const updatedState = {...state}
 
             action.payload.type === 'inc'
-                ? basicParams.power += 1
+                ? (basicParams.power += 1,
+                    updatedState.charParams.points -= 2)
                 : (basicParams.power -= 1,
+                        updatedState.charParams.points += 2,
                         skills['strike'] > basicParams.power
-                            ? skills['strike'] = skills['strike'] - 1
+                            ? (skills['strike'] = skills['strike'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0
                 )
             basicParams.power === 0
                 ? secondParams.vitalForce = 0
                 : secondParams.vitalForce = basicParams.power + 3
         },
-        upgradeDexterity(state, action: PayloadAction<{  type: 'dec' | 'inc' }>): void {
+        upgradeDexterity(state, action: PayloadAction<{
+            type: 'dec' | 'inc'
+        }>): void {
             let basicParams = state.charParams.basicParams
             let secondParams = state.charParams.secondaryParams
             let skills = state.charParams.skills
+            const updatedState = {...state}
 
             action.payload.type === 'inc'
-                ? basicParams.dexterity += 1
+                ? (basicParams.dexterity += 1,
+                    updatedState.charParams.points -= 2)
                 : (basicParams.dexterity -= 1,
+                        updatedState.charParams.points += 2,
                         skills['archery'] > basicParams.dexterity
-                            ? skills['archery'] = skills['archery'] - 1
+                            ? (skills['archery'] = skills['archery'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0,
                         skills['stealth'] > basicParams.dexterity
-                            ? skills['stealth'] = skills['stealth'] - 1
+                            ? (skills['stealth'] = skills['stealth'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0
                 )
             basicParams.dexterity === 0
@@ -116,55 +128,77 @@ export const charSlice = createSlice({
             secondParams.vigor = basicParams.dexterity + basicParams.intelligence
 
         },
-        upgradeIntelligence(state, action: PayloadAction<{  type: 'dec' | 'inc' }>): void {
+        upgradeIntelligence(state, action: PayloadAction<{
+            type: 'dec' | 'inc'
+        }>): void {
             let basicParams = state.charParams.basicParams
             let secondParams = state.charParams.secondaryParams
             let skills = state.charParams.skills
+            const updatedState = {...state}
 
             action.payload.type === 'inc'
-                ? basicParams.intelligence += 1
+                ? (basicParams.intelligence += 1,
+                    updatedState.charParams.points -= 2)
                 : (basicParams.intelligence -= 1,
+                        updatedState.charParams.points += 2,
                         skills['trainability'] > basicParams.intelligence
-                            ? skills['trainability'] = skills['trainability'] - 1
+                            ? (skills['trainability'] = skills['trainability'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0,
                         skills['survival'] > basicParams.intelligence
-                            ? skills['survival'] = skills['survival'] - 1
+                            ? (skills['survival'] = skills['survival'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0,
                         skills['healing'] > basicParams.intelligence
-                            ? skills['healing'] = skills['healing'] - 1
+                            ? (skills['healing'] = skills['healing'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0
                 )
             secondParams.vigor = basicParams.dexterity + basicParams.intelligence
         },
-        upgradeCharisma(state, action: PayloadAction<{  type: 'dec' | 'inc' }>): void {
+        upgradeCharisma(state, action: PayloadAction<{
+            type: 'dec' | 'inc'
+        }>): void {
             let basicParams = state.charParams.basicParams
             let skills = state.charParams.skills
+            const updatedState = {...state}
 
             action.payload.type === 'inc'
-                ? basicParams.charisma += 1
+                ? (basicParams.charisma += 1,
+                    updatedState.charParams.points -= 2)
                 : (basicParams.charisma -= 1,
+                        updatedState.charParams.points += 2,
                         skills['harassment'] > basicParams.charisma
-                            ? skills['harassment'] = skills['harassment'] - 1
+                            ? (skills['harassment'] = skills['harassment'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0,
                         skills['discernment'] > basicParams.charisma
-                            ? skills['discernment'] = skills['discernment'] - 1
+                            ? (skills['discernment'] = skills['discernment'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0,
                         skills['appearance'] > basicParams.charisma
-                            ? skills['appearance'] = skills['appearance'] - 1
+                            ? (skills['appearance'] = skills['appearance'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0,
                         skills['manipulation'] > basicParams.charisma
-                            ? skills['manipulation'] = skills['manipulation'] - 1
+                            ? (skills['manipulation'] = skills['manipulation'] - 1,
+                                updatedState.charParams.points += 1)
                             : void 0
                 )
         },
-        upgradeSkill(state, action: PayloadAction<{ id: string, type: 'dec' | 'inc' }>): void {
+        upgradeSkill(state, action: PayloadAction<{
+            id?: string,
+            type: 'dec' | 'inc'
+        }>): void {
             debugger
             let skills = state.charParams.skills
             const skillName = action.payload.id
-            if (skillName in skills) {
+            const updatedState = {...state}
+
+            if (skillName && skillName in skills) {
                 action.payload.type === 'inc'
-                ? skills[skillName] += 1
-                : skills[skillName] -= 1
+                    ? (skills[skillName] += 1, updatedState.charParams.points -= 1)
+                    : (skills[skillName] -= 1, updatedState.charParams.points += 1)
             }
         },
 

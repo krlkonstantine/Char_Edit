@@ -12,16 +12,20 @@ import {
     upgradeSkill,
     getDamage
 } from "@/state/character.slice";
+import {PointsInfo} from "@/components/CharPropreties/PointsInfo/PointsInfo";
 
 export const CharProperties = () => {
 
     const basicParams = useSelector((state: AppState) => state.char.charParams.basicParams);
     const secondParams = useSelector((state: AppState) => state.char.charParams.secondaryParams);
     const skills = useSelector((state: AppState) => state.char.charParams.skills);
+    const points = useSelector((state: AppState) => state.char.charParams.points);
+
     return (
         <div className={s.skillsandPropertiesWrapper}>
             <div className={s.propertiesWrapper}>
                 <div className={s.mainPropertiesWrapper}>
+                    <PointsInfo points={points} />
                     <Property propertyTitle={'Power'} propertyValue={basicParams.power} upgradeFnc={upgradePower} />
                     <Property propertyTitle={'Dexterity'} propertyValue={basicParams.dexterity} upgradeFnc={upgradeDexterity} />
                     <Property propertyTitle={'Intelligence'} propertyValue={basicParams.intelligence} upgradeFnc={upgradeIntelligence} />

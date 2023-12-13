@@ -4,11 +4,11 @@ import {v1} from "uuid";
 export type CharacterType = {
     name: string
     gender: "male" | 'female'
-    points: number
     charParams: {
+        points: number
         basicParams: BasicCharParams
         secondaryParams: SecondaryCharParams
-        skills:CharSkills
+        skills: CharSkills
     }
 }
 
@@ -59,10 +59,7 @@ export type SkillType = Omit<CharPropertyType, 'level'> & {
     level: number
 }
 
-
-type SkillLevel = 0 | 1 | 2 | 3 | 4 | 5
-
-const skillLevelTitles = {
+export const skillLevelTitles = {
     0: 'untrained',
     1: 'newbie',
     2: 'trainee ',
