@@ -21,6 +21,7 @@ export const Rating = (props: PropsType) => {
 
     return (
             <div className={s.ratingWrapper}>
+                <span className={s.skillLevelText}>{skillLevelTitles[props.skillLevel]}</span>
                 <span>
                     {itemCount.map((item, index) => (
                         <span key={index}>
@@ -28,7 +29,6 @@ export const Rating = (props: PropsType) => {
                         </span>
                     ))}
                 </span>
-                <span className={s.skillLevelText}>{skillLevelTitles[props.skillLevel]}</span>
             </div>
     )
 }

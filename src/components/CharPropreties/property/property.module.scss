@@ -6,11 +6,11 @@
 
   .titleAndInfoWrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     .propertyTitle {
-      font-size: 15px;
+      font-size: var(--font-size-l);
       font-weight: 600;
       color: blueviolet;
       cursor: pointer;
