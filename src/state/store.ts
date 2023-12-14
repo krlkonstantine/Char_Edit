@@ -7,6 +7,7 @@ const makeStore = () =>
         reducer: {
             [charSlice.name]: charSlice.reducer,
         },
+            middleware: getDefaultMiddleware => getDefaultMiddleware(),
         devTools: true,
     });
 

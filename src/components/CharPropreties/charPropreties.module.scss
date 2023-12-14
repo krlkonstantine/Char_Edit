@@ -1,9 +1,25 @@
 .skillsandPropertiesWrapper {
   display: flex;
   align-items: center;
+  gap: 60px;
 
   .propertiesWrapper {
     display: flex;
     flex-direction: column;
+
+    .mainPropertiesWrapper {
+
+      .pointsInfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-size: 20px;
+        color: lawngreen;
+        background-color: dimgrey;
+        width: 200px;
+        height: 40px;
+      }
+    }
   }
 }

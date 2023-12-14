@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import {selectCharState, setCharState} from "@/state/character.slice";
+import {selectCharState} from "@/state/character.slice";
 import {useDispatch, useSelector} from "react-redux";
 import {CharAppearance} from "@/components/charcater/character";
-import {CharPropreties} from "@/components/CharPropreties/CharPropreties";
+import {CharProperties} from "@/components/CharPropreties/CharProperties";
+import {GeneralInfo} from "@/components/generalInfo/generalInfo/generalInfo";
 
 
 const inter = Inter({subsets: ['latin']})
@@ -24,8 +25,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
+
+                <GeneralInfo/>
                 <CharAppearance/>
-                <CharPropreties/>
+                <CharProperties/>
             </main>
         </>
     )

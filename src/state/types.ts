@@ -1,45 +1,49 @@
 //TYPES
+
 export type CharacterType = {
     name: string
-    //gender: "male" | 'female'
+    gender: "male" | 'female'
     charParams: {
-        basicParams: CharPropertyType[]
-        secondaryParams: CharPropertyType[]
-        skills: SkillType[]
-
+        points: number
+        basicParams: BasicCharParams
+        secondaryParams: SecondaryCharParams
+        skills: CharSkills
     }
-}
-// type BasicCharParams = {
-//     power: number
-//     dexterity: number
-//     inteligence: number
-//     charisma: number
-// }
-// type SecondaryCharParams = {
-//     vitalForce: number
-//     dodging: number
-//     vigor: number
-// }
-
-
-export type CharPropertyType = {
-    title: string
-    level: number
-    id: string
+    loadedCharacterData: any
 }
 
-export type SkillType = Omit<CharPropertyType, 'level'> & {
-    level: SkillLevel
+export type BasicCharParams = {
+    power: number
+    dexterity: number
+    intelligence: number
+    charisma: number
+}
+type SecondaryCharParams = {
+    vitalForce: number
+    dodging: number
+    vigor: number
+}
+
+type CharSkills = {
+    [key: string]: number;
+    strike: number;
+    stealth: number;
+    archery: number;
+    trainability: number;
+    survival: number;
+    healing: number;
+    harassment: number;
+    discernment: number;
+    appearance: number;
+    manipulation: number;
 }
 
 
-type SkillLevel = 0 | 1 | 2 | 3 | 4 | 5
-
-const skillLevelTitles = {
-     0: 'untrained',
-     1: 'newbie',
-     2: 'trainee ',
-     3: 'adept',
-     4: 'expert',
-     5: 'master'
+export const skillLevelTitles = {
+    0: 'untrained',
+    1: 'newbie',
+    2: 'trainee ',
+    3: 'adept',
+    4: 'expert',
+    5: 'master'
 }
