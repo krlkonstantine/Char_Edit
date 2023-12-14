@@ -1,56 +1,63 @@
 .propertyWrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   width: 200px;
   height: 70px;
   opacity: 0.8;
 
-  .propertyTitle {
-    font-size: 15px;
-    font-weight: 600;
-    color: blueviolet;
-  }
-
-  .infoWrapper {
+  .titleAndInfoWrapper {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
 
-    .propertyValue {
-      color: lawngreen;
-      font-size: 17px;
+    .propertyTitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: blueviolet;
+      cursor: pointer;
     }
-    .changeProperty {
+
+    .infoWrapper {
       display: flex;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      width: 30px;
-      height: 30px;;
-      color: fuchsia;
-      background-color: dimgrey;
+      gap: 8px;
 
-      .incDec{
-        background-color: cadetblue;
+      .propertyValue {
+        color: lawngreen;
+        font-size: 17px;
+      }
 
-        &:hover {
-          color: green;
-          background-color: yellow;
+      .changeProperty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 30px;
+        height: 30px;;
+        color: fuchsia;
+        background-color: dimgrey;
+
+        .incDec {
+          background-color: cadetblue;
+
+          &:hover {
+            color: green;
+            background-color: yellow;
+          }
         }
       }
+
+      .getDamageBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        color: fuchsia;
+        background-color: dimgrey;
+      }
+
     }
-
-  }
-
-
-  .getDamageBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    color: fuchsia;
-    background-color: dimgrey;
   }
 
 }

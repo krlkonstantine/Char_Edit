@@ -4,13 +4,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
 import {BasicCharParams} from "@/state/types";
 import {PayloadAction} from '@reduxjs/toolkit';
+import {Rating} from "@/components/rating/rating";
 import {useTranslation} from "react-i18next";
+import {ToolTip} from "@/components/toolTip/toolTip";
 
 export type UpgradeType = 'dec' | 'inc';
 
 type PropertyType = {
     propertyTitle: string
     propertyValue: number
+    toolTipText: string
     upgradeFnc?: (params: { id?: string; type: UpgradeType }) => PayloadAction<{ id?: string; type: UpgradeType }>;
     isSkill?: boolean
     skillKey?: string
@@ -70,7 +73,7 @@ export const Property = (props: PropertyType) => {
     const isDisabledForUpgrade =
         (props.isSkill
             ? disableTrainBtn(props.skillKey || '', props.propertyValue, basicParams)
-            : props.propertyValue >= 5) || (!props.isSkill && points <=1)
+            : props.propertyValue >= 5) || (!props.isSkill && points <= 1)
     //and we cant upgrade more than 5 steps, that's the limit.
     //This check is placed here as in future it can be necessary
     //to increase the limit. In such case reducer can not be modified
@@ -80,27 +83,33 @@ export const Property = (props: PropertyType) => {
 
     return (
         <div className={s.propertyWrapper}>
-            <span className={s.propertyTitle}>{`${props.propertyTitle}:`}</span>
-            <div className={s.infoWrapper}>
-                {props.isVitalForce &&
-                    <button className={s.getDamageBtn} onClick={() => upgradeProperty('dec')}
-                            disabled={props.propertyValue <= 0}>
-                        {t('main.damage')}
-
-                    </button>}
-                {props.upgradeFnc && !props.isVitalForce &&
-                    <button onClick={() => upgradeProperty('dec')} disabled={isDisabledForDecrease}
-                            className={s.changeProperty}>
-                        ▼
-                    </button>}
-                <span className={s.propertyValue}>{props.propertyValue}</span>
-                {props.upgradeFnc && !props.isVitalForce &&
-                    <button onClick={() => upgradeProperty('inc')} disabled={isDisabledForUpgrade}
-                            className={s.changeProperty}>
-                        ▲
-                    </button>}
+            <div className={s.titleAndInfoWrapper}>
+                <ToolTip textForDisplay={props.toolTipText}>
+                    <span className={s.propertyTitle}>{`${props.propertyTitle}:`}</span>
+                </ToolTip>
+                <div className={s.infoWrapper}>
+                    {props.isVitalForce &&
+                        <ToolTip textForDisplay={t('main.tooltip.getDamage')}>
+                            <button className={s.getDamageBtn} onClick={() => upgradeProperty('dec')}
+                                    disabled={props.propertyValue <= 0}>
+                                {t('main.damage')}
+                            </button>
+                        </ToolTip>
+                        }
+                    {props.upgradeFnc && !props.isVitalForce &&
+                        <button onClick={() => upgradeProperty('dec')} disabled={isDisabledForDecrease}
+                                className={s.changeProperty}>
+                            ▼
+                        </button>}
+                    <span className={s.propertyValue}>{props.propertyValue}</span>
+                    {props.upgradeFnc && !props.isVitalForce &&
+                        <button onClick={() => upgradeProperty('inc')} disabled={isDisabledForUpgrade}
+                                className={s.changeProperty}>
+                            ▲
+                        </button>}
+                </div>
             </div>
-
+            {props.isSkill && <Rating skillLevel={props.propertyValue}/>}
         </div>
     );
 };

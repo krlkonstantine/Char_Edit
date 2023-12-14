@@ -38,12 +38,3 @@ type CharSkills = {
     manipulation: number;
 }
 
-
-export const skillLevelTitles = {
-    0: 'untrained',
-    1: 'newbie',
-    2: 'trainee ',
-    3: 'adept',
-    4: 'expert',
-    5: 'master'
-}
