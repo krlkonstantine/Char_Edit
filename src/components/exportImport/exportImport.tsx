@@ -10,7 +10,7 @@ type PropsType = {
 
 const CharacterManagement: FC<PropsType> = (props) => {
     const dispatch = useDispatch();
-    const [loadedCharacterData, setLoadedCharacterData] = useState<string | null>(null);
+    //const [loadedCharacterData, setLoadedCharacterData] = useState<string | null>(null);
 
 
     const handleLoadCharacter = useCallback(async () => {
@@ -31,7 +31,7 @@ const CharacterManagement: FC<PropsType> = (props) => {
             const selectedFile = await filePromise;
 
             if (selectedFile) {
-                const importedCharacterData = await importCharacter(selectedFile);
+                const importedCharacterData = await importCharacter(selectedFile) as CharacterType;
                 dispatch(loadCharacterFulfilled({ data: importedCharacterData }));
             }
         } catch (error) {
@@ -41,7 +41,8 @@ const CharacterManagement: FC<PropsType> = (props) => {
 
 
     const handleSaveCharacter = useCallback(async () => {
-        const resultAction = await dispatch(saveCharacter(props.character));
+        // @ts-ignore
+        const resultAction = dispatch(saveCharacter(props.character));
 
         console.log('Save character result:', resultAction);
     }, [dispatch, props.character]);

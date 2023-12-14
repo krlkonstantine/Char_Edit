@@ -5,16 +5,19 @@ import {CharacterType} from "@/state/types";
 import {UpgradeType} from "@/components/CharPropreties/property/property";
 
 
-// Функция для импорта данных из файла
-export const importCharacter = (file) => {
+export const importCharacter = (file: File) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = (event) => {
-            try {
-                const importedCharacter = JSON.parse(event.target.result);
-                resolve(importedCharacter);
-            } catch (error) {
-                reject(error);
+            if (event.target) {
+                try {
+                    const importedCharacter = JSON.parse(event.target.result as string);
+                    resolve(importedCharacter);
+                } catch (error) {
+                    reject(error);
+                }
+            } else {
+                reject(new Error("Event target is null"));
             }
         };
         reader.readAsText(file);
@@ -22,34 +25,43 @@ export const importCharacter = (file) => {
 };
 
 export const loadCharacter = createAsyncThunk(
-    "char/loadCharacter",
+    'char/loadCharacter',
     async (_, { dispatch, rejectWithValue }) => {
         try {
-            const fileInput = document.createElement("input");
-            fileInput.type = "file";
-            fileInput.accept = ".json";
-            fileInput.addEventListener("change", async (event) => {
-                if (event.target) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        return await importCharacter(file);
-                    }
-                }
-            });
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.json';
 
-            fileInput.click();
+            return new Promise((resolve, reject) => {
+                fileInput.addEventListener('change', async (event: Event) => {
+                    if (event.target instanceof HTMLInputElement) {
+                        const files = event.target.files;
+                        if (files && files.length > 0) {
+                            try {
+                                const file = files[0];
+                                const importedCharacter = await importCharacter(file);
+                                // @ts-ignore
+                                resolve(importedCharacter);
+                            } catch (error) {
+                                reject(error);
+                            }
+                        }
+                    }
+                });
+                fileInput.click();
+            });
         } catch (error) {
-            console.error("Failed to load character:", error);
-            return rejectWithValue(error);
+            console.error('Failed to load character:', error);
+            throw rejectWithValue(error);
         }
     }
-);
+)
 
 export const saveCharacter = createAsyncThunk(
     "char/saveCharacter",
     async (character: CharacterType) => {
         const json = JSON.stringify(character);
-        const blob = new Blob([json], { type: 'application/json' });
+        const blob = new Blob([json], {type: 'application/json'});
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -61,7 +73,6 @@ export const saveCharacter = createAsyncThunk(
         return character;
     }
 )
-
 
 
 const initialState: CharacterType = {
@@ -249,7 +260,7 @@ export const charSlice = createSlice({
         loadCharacterFulfilled(state, action: PayloadAction<{ data: CharacterType }>) {
             return {
                 ...state,
-                ...action.payload.data,
+                ...(action.payload.data as CharacterType),
                 loadedCharacterData: action.payload.data,
             };
         },
@@ -265,6 +276,7 @@ export const charSlice = createSlice({
                 };
             })
             .addCase(loadCharacter.fulfilled, (state, action) => {
+                // @ts-ignore
                 return charSlice.caseReducers.loadCharacterFulfilled(state, action);
 
             })
@@ -282,7 +294,17 @@ export const charSlice = createSlice({
     },
 });
 
-export const {loadCharacterFulfilled, resetUserData, choseGender, upgradeSkill, updateName, getDamage, upgradePower, upgradeDexterity, upgradeIntelligence, upgradeCharisma} = charSlice.actions;
+export const {
+    resetUserData,
+    choseGender,
+    upgradeSkill,
+    updateName,
+    getDamage,
+    upgradePower,
+    upgradeDexterity,
+    upgradeIntelligence,
+    upgradeCharisma
+} = charSlice.actions;
 
 export const selectCharState = (state: AppState) => state.char;
 
