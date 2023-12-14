@@ -16,8 +16,7 @@ export const CharAppearance = () => {
                 className={s.characterImg}
                 src={genderInfo === 'male' ? itachiPic : kaguyaPic}
                 alt="Next.js Logo"
-                width={380}
-                //height={37}
+                width={300}
                 priority
             />
         </div>

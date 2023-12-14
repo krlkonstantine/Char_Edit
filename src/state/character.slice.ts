@@ -79,7 +79,7 @@ const initialState: CharacterType = {
     name: 'Enter your name',
     gender: 'male',
     charParams: {
-        points: 17,
+        points: 20,
         basicParams: {
             power: 0,
             dexterity: 0,

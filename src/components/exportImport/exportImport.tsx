@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { CharacterType } from "@/state/types";
 import {importCharacter, saveCharacter} from "@/state/character.slice";
@@ -10,8 +10,6 @@ type PropsType = {
 
 const CharacterManagement: FC<PropsType> = (props) => {
     const dispatch = useDispatch();
-    //const [loadedCharacterData, setLoadedCharacterData] = useState<string | null>(null);
-
 
     const handleLoadCharacter = useCallback(async () => {
         try {
