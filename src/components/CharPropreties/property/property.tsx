@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
 import {BasicCharParams} from "@/state/types";
 import {PayloadAction} from '@reduxjs/toolkit';
+import {useTranslation} from "react-i18next";
 
 export type UpgradeType = 'dec' | 'inc';
 
@@ -16,6 +17,9 @@ type PropertyType = {
     isVitalForce?: boolean
 }
 export const Property = (props: PropertyType) => {
+    const {t, i18n} = useTranslation()
+
+
     const basicParams = useSelector((state: AppState) => state.char.charParams.basicParams);
     const dispatch = useDispatch()
     const points = useSelector((state: AppState) => state.char.charParams.points);
@@ -81,7 +85,8 @@ export const Property = (props: PropertyType) => {
                 {props.isVitalForce &&
                     <button className={s.getDamageBtn} onClick={() => upgradeProperty('dec')}
                             disabled={props.propertyValue <= 0}>
-                        get damage
+                        {t('main.header')}
+
                     </button>}
                 {props.upgradeFnc && !props.isVitalForce &&
                     <button onClick={() => upgradeProperty('dec')} disabled={isDisabledForDecrease}

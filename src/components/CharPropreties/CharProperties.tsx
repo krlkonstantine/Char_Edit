@@ -13,6 +13,7 @@ import {
     getDamage
 } from "@/state/character.slice";
 import {PointsInfo} from "@/components/CharPropreties/PointsInfo/PointsInfo";
+import {useTranslation} from "react-i18next";
 
 export const CharProperties = () => {
 
