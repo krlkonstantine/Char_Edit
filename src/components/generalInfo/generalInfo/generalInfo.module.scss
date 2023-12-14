@@ -1,4 +1,30 @@
 .characterWrapper {
   display: flex;
   flex-direction: column;
+
+  .nameWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .categoryTitle{
+      font-size: 18px;
+      color: hotpink;
+    }
+
+  }
+
+}
+
+.importExportWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.charOptionsBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  height: 40px;
 }

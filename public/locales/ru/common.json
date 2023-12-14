@@ -1,0 +1,46 @@
+{
+  "main": {
+    "name": "Имя:",
+    "gender": "Пол:",
+    "male": "муж",
+    "female": "жен",
+    "reset": "Сбросить Параметры",
+    "importChar": "Импорт персонажа",
+    "exportChar": "Экспорт персонажа",
+    "damage": "получить урон",
+    "pointsChar": "очков осталось",
+    "noPoints": "У вас не осталось очков",
+    "basicParam": {
+      "power": "Сила",
+      "dexterity": "Ловкость",
+      "intelligence": "Интелект",
+      "charisma": "Харизма"
+    },
+    "secondParam": {
+      "vitalForce": "Жизненная сила",
+      "dodging": "Уклонение",
+      "vigor": "Энергичность"
+    },
+    "skills": {
+      "strike": "Атака",
+      "stealth": "Стелс",
+      "archery": "Стрельба из лука",
+      "trainability": "Обучаемость",
+      "survival": "Выживание",
+      "healing": "Медицина",
+      "harassment": "Запугивание",
+      "discernment": "Проницательность",
+      "appearance": "Внешний вид",
+      "manipulation": "Манипулирование"
+    },
+    "levels": {
+      "0_level": "Нетренированный",
+      "1_level": "Новичок",
+      "2_level": "Ученик",
+      "3_level": "Адепт",
+      "4_level": "Эксперт",
+      "5_level": "Мастер"
+    }
+  }
+}
+

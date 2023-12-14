@@ -1,11 +1,14 @@
-import React, { FC, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { CharacterType } from "@/state/types";
+import React, {FC, useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {CharacterType} from "@/state/types";
 import {importCharacter, saveCharacter} from "@/state/character.slice";
 import {loadCharacterFulfilled} from "@/state/characterActions";
+import s from '../generalInfo/generalInfo/generalInfo.module.scss'
 
 type PropsType = {
     character: CharacterType
+    importText: string
+    exportText: string
 };
 
 const CharacterManagement: FC<PropsType> = (props) => {
@@ -30,7 +33,7 @@ const CharacterManagement: FC<PropsType> = (props) => {
 
             if (selectedFile) {
                 const importedCharacterData = await importCharacter(selectedFile) as CharacterType;
-                dispatch(loadCharacterFulfilled({ data: importedCharacterData }));
+                dispatch(loadCharacterFulfilled({data: importedCharacterData}));
             }
         } catch (error) {
             console.error("Failed to load character:", error);
@@ -46,9 +49,9 @@ const CharacterManagement: FC<PropsType> = (props) => {
     }, [dispatch, props.character]);
 
     return (
-        <div>
-            <button onClick={handleLoadCharacter}>Загрузить персонажа</button>
-            <button onClick={handleSaveCharacter}>Сохранить персонажа</button>
+        <div className={s.importExportWrapper}>
+            <button onClick={handleLoadCharacter} className={s.charOptionsBtn}>{props.importText}</button>
+            <button onClick={handleSaveCharacter} className={s.charOptionsBtn}>{props.exportText}</button>
         </div>
     );
 };
