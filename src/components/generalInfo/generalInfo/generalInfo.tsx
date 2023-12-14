@@ -9,6 +9,7 @@ import {EditableSpan} from "@/components/editableSpan/EditableSpan";
 import {resetUserData, updateName} from "@/state/character.slice";
 import CharacterManagement from "@/components/exportImport/exportImport";
 import {useTranslation} from "react-i18next";
+import {ToolTip} from "@/components/toolTip/toolTip";
 
 export const GeneralInfo = () => {
     const dispatch = useDispatch();
@@ -34,7 +35,9 @@ export const GeneralInfo = () => {
             </div>
 
             <CharacterManagement importText={t('main.importChar')} exportText={t('main.exportChar')} character={generalInfo}/>
-            <button className={s.charOptionsBtn} onClick={resetHandler}>{t('main.reset')}</button>
+            <ToolTip textForDisplay={'Your settings will be lost! Consider exporting your character before reset'} isDangerAction={true}>
+                <button className={s.charOptionsBtn} onClick={resetHandler}>{t('main.reset')}</button>
+            </ToolTip>
         </div>
     );
 }

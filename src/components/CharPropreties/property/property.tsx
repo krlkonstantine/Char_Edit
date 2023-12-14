@@ -6,12 +6,14 @@ import {BasicCharParams} from "@/state/types";
 import {PayloadAction} from '@reduxjs/toolkit';
 import {Rating} from "@/components/rating/rating";
 import {useTranslation} from "react-i18next";
+import {ToolTip} from "@/components/toolTip/toolTip";
 
 export type UpgradeType = 'dec' | 'inc';
 
 type PropertyType = {
     propertyTitle: string
     propertyValue: number
+    toolTipText: string
     upgradeFnc?: (params: { id?: string; type: UpgradeType }) => PayloadAction<{ id?: string; type: UpgradeType }>;
     isSkill?: boolean
     skillKey?: string
@@ -95,7 +97,9 @@ export const Property = (props: PropertyType) => {
                                 className={s.changeProperty}>
                             ▼
                         </button>}
-                    <span className={s.propertyValue}>{props.propertyValue}</span>
+                    <ToolTip textForDisplay={props.toolTipText}>
+                        <span className={s.propertyValue}>{props.propertyValue}</span>
+                    </ToolTip>
                     {props.upgradeFnc && !props.isVitalForce &&
                         <button onClick={() => upgradeProperty('inc')} disabled={isDisabledForUpgrade}
                                 className={s.changeProperty}>
