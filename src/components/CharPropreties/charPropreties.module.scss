@@ -1,11 +1,14 @@
 .skillsandPropertiesWrapper {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
+  width: 50%;
 
   .propertiesWrapper {
     display: flex;
     flex-direction: column;
+    width: 50%;
+    background-color: #0a6638;
 
     .mainPropertiesWrapper {
 
@@ -19,7 +22,13 @@
         background-color: dimgrey;
         width: 200px;
         height: 40px;
+
       }
     }
+  }
+  .skillsWrapper{
+    width: 65%;
+    background-color: var(--color-dark-500);
+
   }
 }

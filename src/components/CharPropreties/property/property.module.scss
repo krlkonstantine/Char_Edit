@@ -1,14 +1,12 @@
 .propertyWrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 200px;
   height: 70px;
   opacity: 0.8;
 
   .titleAndInfoWrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     .propertyTitle {

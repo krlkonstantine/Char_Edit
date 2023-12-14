@@ -1,0 +1,11 @@
+.ratingWrapper{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  .skillLevelText {
+    font-size: 15px;
+    color: var(--color-accent-100);
+  }
+
+}

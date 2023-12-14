@@ -1,5 +1,6 @@
 import {Star} from './star'
 import {useTranslation} from "react-i18next";
+import s from './rating.module.scss'
 
 type PropsType = {
     skillLevel: number
@@ -19,13 +20,15 @@ export const Rating = (props: PropsType) => {
 
 
     return (
-        <div style={{ display: 'flex' }}>
-            {itemCount.map((item, index) => (
-                <div key={index} >
-                    <Star selected={props.skillLevel >= item} />
-                </div>
-            ))}
-            <span>{skillLevelTitles[props.skillLevel]}</span>
-        </div>
+            <div className={s.ratingWrapper}>
+                <span>
+                    {itemCount.map((item, index) => (
+                        <span key={index}>
+                            <Star selected={props.skillLevel >= item}/>
+                        </span>
+                    ))}
+                </span>
+                <span className={s.skillLevelText}>{skillLevelTitles[props.skillLevel]}</span>
+            </div>
     )
 }

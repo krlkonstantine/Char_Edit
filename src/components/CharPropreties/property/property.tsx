@@ -36,6 +36,7 @@ export const Property = (props: PropertyType) => {
     }
 
     function disableTrainBtn(skillTitle: string, propertyValue: number, basicParams: BasicCharParams): boolean {
+        //TODO this one should be made a separate hook useDisableBtn
         if (points === 0) {
             return true;
         }
