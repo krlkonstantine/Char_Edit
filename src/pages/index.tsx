@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import {CharAppearance} from "@/components/charcater/character";
+import {CharAppearance} from "@/components/charImg/charImg";
 import {CharProperties} from "@/components/CharPropreties/CharProperties";
 import {GeneralInfo} from "@/components/generalInfo/generalInfo/generalInfo";
 import './../i18n'

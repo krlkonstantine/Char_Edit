@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
 import {BasicCharParams} from "@/state/types";
 import {PayloadAction} from '@reduxjs/toolkit';
-import {Rating} from "@/components/rating/rating";
+import {Rating} from "@/components/utils/rating/rating";
 import {useTranslation} from "react-i18next";
 import {ToolTip} from "@/components/utils/toolTip/toolTip";
 

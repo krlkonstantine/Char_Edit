@@ -5,9 +5,9 @@ import s from './generalInfo.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
 import {ToggleGender} from "@/components/tabSwitcher/tabSwitcher";
-import {EditableSpan} from "@/components/editableSpan/EditableSpan";
+import {EditableSpan} from "@/components/utils/editableSpan/EditableSpan";
 import {resetUserData, updateName} from "@/state/character.slice";
-import CharacterManagement from "@/components/exportImport/exportImport";
+import CharacterManagement from "@/components/utils/exportImport/exportImport";
 import {useTranslation} from "react-i18next";
 import {ToolTip} from "@/components/utils/toolTip/toolTip";
 

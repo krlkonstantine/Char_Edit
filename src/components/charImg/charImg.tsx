@@ -3,7 +3,7 @@ import Image from 'next/image'
 import itachiPic from '../../assets/img/itachi_pic.jpg'
 import kaguyaPic from '../../assets/img/kaguya_pic.jpg'
 
-import s from './character.module.scss'
+import s from './charImg.module.scss'
 import {useSelector} from "react-redux";
 import {AppState} from "@/state/store";
 

@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {CharacterType} from "@/state/types";
 import {importCharacter, saveCharacter} from "@/state/character.slice";
 import {loadCharacterFulfilled} from "@/state/characterActions";
-import s from '../generalInfo/generalInfo/generalInfo.module.scss'
+import s from '../../generalInfo/generalInfo/generalInfo.module.scss'
 import {ToolTip} from "@/components/utils/toolTip/toolTip";
 
 type PropsType = {
