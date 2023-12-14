@@ -84,22 +84,24 @@ export const Property = (props: PropertyType) => {
     return (
         <div className={s.propertyWrapper}>
             <div className={s.titleAndInfoWrapper}>
-                <span className={s.propertyTitle}>{`${props.propertyTitle}:`}</span>
+                <ToolTip textForDisplay={props.toolTipText}>
+                    <span className={s.propertyTitle}>{`${props.propertyTitle}:`}</span>
+                </ToolTip>
                 <div className={s.infoWrapper}>
                     {props.isVitalForce &&
-                        <button className={s.getDamageBtn} onClick={() => upgradeProperty('dec')}
-                                disabled={props.propertyValue <= 0}>
-                            {t('main.damage')}
-
-                        </button>}
+                        <ToolTip textForDisplay={t('main.tooltip.getDamage')}>
+                            <button className={s.getDamageBtn} onClick={() => upgradeProperty('dec')}
+                                    disabled={props.propertyValue <= 0}>
+                                {t('main.damage')}
+                            </button>
+                        </ToolTip>
+                        }
                     {props.upgradeFnc && !props.isVitalForce &&
                         <button onClick={() => upgradeProperty('dec')} disabled={isDisabledForDecrease}
                                 className={s.changeProperty}>
                             ▼
                         </button>}
-                    <ToolTip textForDisplay={props.toolTipText}>
-                        <span className={s.propertyValue}>{props.propertyValue}</span>
-                    </ToolTip>
+                    <span className={s.propertyValue}>{props.propertyValue}</span>
                     {props.upgradeFnc && !props.isVitalForce &&
                         <button onClick={() => upgradeProperty('inc')} disabled={isDisabledForUpgrade}
                                 className={s.changeProperty}>

@@ -7,7 +7,7 @@
     "reset": "Reset Character",
     "importChar": "Import Character",
     "exportChar": "Export Character",
-    "damage": "Get Damage",
+    "damage": "get damage",
     "pointsChar": "points left",
     "noPoints": "You have no points left",
     "basicParam": {
@@ -40,6 +40,24 @@
       "3_level": "Adept",
       "4_level": "Expert",
       "5_level": "Master"
+    },
+    "tooltip": {
+      "resetMsg": "Your settings will be lost! Consider exporting your character before reset",
+      "basicParam": "cost for increasing 2 points",
+      "vitalForce": "Vital Force = Power + 3",
+      "getDamage": "reduces Vital Force by 1 point",
+      "dodging": "Dodging = Dexterity + 10",
+      "vigor": "Vigor = Dexterity + Intelligence",
+      "strike": "strike can not exceed the power",
+      "stealth": "stealth can not exceed the dexterity",
+      "archery": "archery can not exceed the dexterity",
+      "trainability": "trainability can not exceed the intelligence",
+      "survival": "survival can not exceed the intelligence",
+      "healing": "healing can not exceed the intelligence",
+      "harassment": "harassment can not exceed the charisma",
+      "discernment": "discernment can not exceed the charisma",
+      "appearance": "appearance can not exceed the charisma",
+      "manipulation": "manipulation can not exceed the charisma"
     }
   }
 }

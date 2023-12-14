@@ -35,8 +35,8 @@ export const GeneralInfo = () => {
             </div>
 
             <CharacterManagement importText={t('main.importChar')} exportText={t('main.exportChar')} character={generalInfo}/>
-            <ToolTip textForDisplay={'Your settings will be lost! Consider exporting your character before reset'} isDangerAction={true}>
-                <button className={s.charOptionsBtn} onClick={resetHandler}>{t('main.reset')}</button>
+            <ToolTip textForDisplay={t('main.tooltip.resetMsg')} isDangerAction={true}>
+                <button style={{cursor: 'help'}} className={s.charOptionsBtn} onClick={resetHandler}>{t('main.reset')}</button>
             </ToolTip>
         </div>
     );
