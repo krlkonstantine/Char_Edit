@@ -1,8 +1,10 @@
 .propertyWrapper {
   display: flex;
   flex-direction: column;
-  height: 70px;
-  opacity: 0.8;
+  background-color: var(--color-dark-500);
+  margin-bottom: 1vh;
+  border-radius: 4px;
+  padding: 2px 12px;
 
   .titleAndInfoWrapper {
     display: flex;
@@ -12,7 +14,7 @@
     .propertyTitle {
       font-size: var(--font-size-l);
       font-weight: 600;
-      color: blueviolet;
+      color: var(--color-light-900);
       cursor: pointer;
     }
 
@@ -22,28 +24,29 @@
       gap: 8px;
 
       .propertyValue {
-        color: lawngreen;
-        font-size: 17px;
+        color: var(--color-light-900);
+        font-size: var(--font-size-l);
+        font-weight: var(--font-weight-bold);
       }
 
       .changeProperty {
+        all: unset;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 30px;
-        height: 30px;;
-        color: fuchsia;
-        background-color: dimgrey;
-
-        .incDec {
-          background-color: cadetblue;
+        color: var(--color-danger-300);
+        background-color: transparent;
 
           &:hover {
-            color: green;
-            background-color: yellow;
+            color: var(--color-danger-500);
+            cursor: pointer;
           }
-        }
+        &:active {
+            color: var(--color-danger-100);
+            cursor: pointer;
+          }
+
       }
 
       .getDamageBtn {

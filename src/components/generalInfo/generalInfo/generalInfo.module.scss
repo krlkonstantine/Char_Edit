@@ -26,14 +26,14 @@
 
 .charOptionsBtn{
   @include mixins.defaultBorder;
-  all: unset;
+  //all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   height: 40px;
   cursor: pointer;
-  background-color: var(--color-dark-700);
+  background-color: var(--color-dark-500);
   color: var(--color-accent-500);
   margin: 10px 0;
   padding: 6px 28px;
