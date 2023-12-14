@@ -6,7 +6,7 @@ import {BasicCharParams} from "@/state/types";
 import {PayloadAction} from '@reduxjs/toolkit';
 import {Rating} from "@/components/rating/rating";
 import {useTranslation} from "react-i18next";
-import {ToolTip} from "@/components/toolTip/toolTip";
+import {ToolTip} from "@/components/utils/toolTip/toolTip";
 
 export type UpgradeType = 'dec' | 'inc';
 

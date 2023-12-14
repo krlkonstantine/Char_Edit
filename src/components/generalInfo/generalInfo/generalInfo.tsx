@@ -9,7 +9,7 @@ import {EditableSpan} from "@/components/editableSpan/EditableSpan";
 import {resetUserData, updateName} from "@/state/character.slice";
 import CharacterManagement from "@/components/exportImport/exportImport";
 import {useTranslation} from "react-i18next";
-import {ToolTip} from "@/components/toolTip/toolTip";
+import {ToolTip} from "@/components/utils/toolTip/toolTip";
 
 export const GeneralInfo = () => {
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export const GeneralInfo = () => {
                 <ToggleGender maleText={t('main.male')} femaleText={t('main.female')}/>
             </div>
 
-            <CharacterManagement importText={t('main.importChar')} exportText={t('main.exportChar')} character={generalInfo}/>
+            <CharacterManagement tooltipImportText={t('main.tooltip.importMsg')} importText={t('main.importChar')} exportText={t('main.exportChar')} character={generalInfo}/>
             <ToolTip textForDisplay={t('main.tooltip.resetMsg')} isDangerAction={true}>
                 <button style={{cursor: 'help'}} className={s.charOptionsBtn} onClick={resetHandler}>{t('main.reset')}</button>
             </ToolTip>

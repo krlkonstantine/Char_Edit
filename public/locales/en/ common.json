@@ -43,6 +43,7 @@
     },
     "tooltip": {
       "resetMsg": "Your settings will be lost! Consider exporting your character before reset",
+      "importMsg": "All your settings will be replaced. If you need them, export your character",
       "basicParam": "cost for increasing 2 points",
       "vitalForce": "Vital Force = Power + 3",
       "getDamage": "reduces Vital Force by 1 point",
