@@ -25,8 +25,4 @@ i18n
         fallbackLng: 'en',
     });
 
-// i18n.services.formatter.add('DATE_LONG', (value, lng, _options) => {
-//     return DateTime.fromJSDate(value).setLocale(lng).toLocaleString(DateTime.DATE_HUGE)
-// });
-i18n.changeLanguage('en')
 export default i18n;

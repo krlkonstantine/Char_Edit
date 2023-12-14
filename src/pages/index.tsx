@@ -5,6 +5,7 @@ import {CharAppearance} from "@/components/charcater/character";
 import {CharProperties} from "@/components/CharPropreties/CharProperties";
 import {GeneralInfo} from "@/components/generalInfo/generalInfo/generalInfo";
 import './../i18n'
+import {LangSwitcher} from "@/components/langSwitcher/langSwitcher";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -19,7 +20,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
-
+                <LangSwitcher/>
                 <GeneralInfo/>
                 <CharAppearance/>
                 <CharProperties/>
