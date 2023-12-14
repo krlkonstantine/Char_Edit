@@ -1,5 +1,47 @@
 {
   "main": {
-    "header": "Hello World!"
+    "name": "Name:",
+    "gender": "Gender:",
+    "male": "male",
+    "female": "female",
+    "reset": "Reset Character",
+    "importChar": "Import Character",
+    "exportChar": "Export Character",
+    "damage": "Get Damage",
+    "pointsChar": "points left",
+    "noPoints": "You have no points left",
+    "basicParam": {
+      "power": "Power",
+      "dexterity": "Dexterity",
+      "intelligence": "Intelligence",
+      "charisma": "Charisma"
+    },
+    "secondParam": {
+      "vitalForce": "Vital Force",
+      "dodging": "Dodging",
+      "vigor": "Vigor"
+    },
+    "skills": {
+      "strike": "Strike",
+      "stealth": "Stealth",
+      "archery": "Archery",
+      "trainability": "Trainability",
+      "survival": "Survival",
+      "healing": "Healing",
+      "harassment": "Harassment",
+      "discernment": "Discernment",
+      "appearance": "Appearance",
+      "manipulation": "Manipulation"
+    },
+    "levels": {
+      "0_level": "Untrained",
+      "1_level": "Newbie",
+      "2_level": "Trainee",
+      "3_level": "Adept",
+      "4_level": "Expert",
+      "5_level": "Master"
+    }
   }
 }
+
+

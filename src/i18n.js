@@ -25,4 +25,5 @@ i18n
         fallbackLng: 'en',
     });
 
+i18n.changeLanguage('en')
 export default i18n;

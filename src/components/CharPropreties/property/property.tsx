@@ -85,7 +85,7 @@ export const Property = (props: PropertyType) => {
                 {props.isVitalForce &&
                     <button className={s.getDamageBtn} onClick={() => upgradeProperty('dec')}
                             disabled={props.propertyValue <= 0}>
-                        {t('main.header')}
+                        {t('main.damage')}
 
                     </button>}
                 {props.upgradeFnc && !props.isVitalForce &&

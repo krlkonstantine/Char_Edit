@@ -4,7 +4,11 @@ import s from './tabSwitcher.module.scss';
 import {useDispatch} from "react-redux";
 import {choseGender} from "@/state/character.slice";
 
-export const ToggleGroupDemo = () => {
+type PropsType = {
+    maleText: string
+    femaleText: string
+}
+export const ToggleGender = (props: PropsType) => {
 
     const dispatch = useDispatch();
 
@@ -14,15 +18,15 @@ export const ToggleGroupDemo = () => {
     return (<ToggleGroup.Root
         className={s.ToggleGroup}
         type="single"
-        defaultValue="center"
+        defaultValue="male"
         aria-label="Text alignment"
         onValueChange={handleChange}
     >
         <ToggleGroup.Item className={s.ToggleGroupItem} value="male" aria-label="Left aligned">
-            male
+            {props.maleText}
         </ToggleGroup.Item>
         <ToggleGroup.Item className={s.ToggleGroupItem} value="female" aria-label="Right aligned">
-            female
+            {props.femaleText}
         </ToggleGroup.Item>
     </ToggleGroup.Root>)
 
