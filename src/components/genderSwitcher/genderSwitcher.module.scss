@@ -7,8 +7,8 @@
   .toggleGroupItem {
     background-color: transparent;
     color: var(--color-light-900);
-    height: 3vh;
-    width: 2vw;
+    height: 36px;
+    width: 116px;
     @include mixins.toggleItem;
 
   }

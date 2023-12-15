@@ -4,7 +4,7 @@ import React from 'react';
 import s from './generalInfo.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
-import {ToggleGender} from "@/components/tabSwitcher/tabSwitcher";
+import {ToggleGender} from "@/components/genderSwitcher/genderSwitcher";
 import {EditableSpan} from "@/components/utils/editableSpan/EditableSpan";
 import {resetUserData, updateName} from "@/state/character.slice";
 import CharacterManagement from "@/components/utils/exportImport/exportImport";
@@ -25,11 +25,11 @@ export const GeneralInfo = () => {
     }
     return (
         <div className={s.characterWrapper}>
-            <div className={s.nameWrapper}>
+            <div className={s.categoryWrapper}>
                 <span className={s.categoryTitle}>{t('main.name')}</span>
                 <EditableSpan value={generalInfo.name} onChange={onNameChangeHandler}/>
             </div>
-            <div className={s.nameWrapper}>
+            <div className={s.categoryWrapper}>
                 <span className={s.categoryTitle}>{t('main.gender')}</span>
                 <ToggleGender maleText={t('main.male')} femaleText={t('main.female')}/>
             </div>

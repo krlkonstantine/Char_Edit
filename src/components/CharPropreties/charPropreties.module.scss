@@ -11,22 +11,18 @@
     width: 50%;
 
     .mainPropertiesWrapper {
+      position: relative;
 
-      .pointsInfo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-        font-size: 20px;
-        color: lawngreen;
-        background-color: dimgrey;
-        width: 200px;
-        height: 40px;
+      .pointsInfoWrapper {
+        position: absolute;
+        top: -90%;
+        width: 100%;
 
       }
     }
   }
-  .skillsWrapper{
+
+  .skillsWrapper {
     width: 65%;
 
   }

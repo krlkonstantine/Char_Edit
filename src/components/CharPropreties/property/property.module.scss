@@ -1,3 +1,5 @@
+@use "src/styles/mixins" as mixins;
+
 .propertyWrapper {
   display: flex;
   flex-direction: column;
@@ -12,9 +14,7 @@
     align-items: center;
 
     .propertyTitle {
-      font-size: var(--font-size-l);
-      font-weight: 600;
-      color: var(--color-light-900);
+      @include mixins.defaultMainText;
       cursor: pointer;
     }
 
@@ -24,38 +24,43 @@
       gap: 8px;
 
       .propertyValue {
-        color: var(--color-light-900);
-        font-size: var(--font-size-l);
-        font-weight: var(--font-weight-bold);
+        @include mixins.defaultMainText;
       }
 
       .changeProperty {
         all: unset;
+        @include mixins.defaultButton;
+        @include mixins.defaultSecondText;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        color: var(--color-danger-300);
         background-color: transparent;
 
-          &:hover {
-            color: var(--color-danger-500);
-            cursor: pointer;
-          }
+        &:hover {
+          color: var(--color-danger-500);
+        }
+
         &:active {
-            color: var(--color-danger-100);
-            cursor: pointer;
-          }
+          color: var(--color-danger-100);
+        }
 
       }
 
       .getDamageBtn {
+        all: unset;
+        @include mixins.defaultBorder;
+        @include mixins.defaultButton;
+        @include mixins.defaultSecondText;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 4px 8px;
+        background-color: var(--color-dark-500);
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
         width: 80px;
-        color: fuchsia;
-        background-color: dimgrey;
+        font-size: var(--font-size-xs);
+        line-height: var(--line-height-s);
       }
 
     }
