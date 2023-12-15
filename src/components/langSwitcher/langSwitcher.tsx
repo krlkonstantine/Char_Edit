@@ -12,7 +12,7 @@ export const LangSwitcher = () => {
     <ToggleGroup.Root
       className={s.toggleGroup}
       type="single"
-      defaultValue="center"
+      defaultValue="en"
       aria-label="Text alignment"
       onValueChange={handleChange}
     >
