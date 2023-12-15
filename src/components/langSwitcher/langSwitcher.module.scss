@@ -1,6 +1,5 @@
 @use "src/styles/mixins" as mixins;
 
-
 .toggleGroup {
   @include mixins.toggleGroup;
 
@@ -10,13 +9,11 @@
     height: 3vh;
     width: 2vw;
     @include mixins.toggleItem;
-
   }
 }
 
 .toggleDisabled {
   @include mixins.toggleGroup;
-
 
   button {
     @include mixins.toggleButton;
