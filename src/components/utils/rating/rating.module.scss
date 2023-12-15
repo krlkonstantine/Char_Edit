@@ -6,6 +6,9 @@
   height: 18px;
   gap: 30px;
 
+  @media screen and (max-width: 480px) {
+    gap: unset;
+  }
   .skillLevelText {
     font-size: var(--font-size-m);
     color: var(--color-accent-500);

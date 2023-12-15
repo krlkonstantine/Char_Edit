@@ -199,7 +199,6 @@ export const charSlice = createSlice({
         type: "dec" | "inc";
       }>,
     ): void {
-      debugger;
       let skills = state.charParams.skills;
       const skillName = action.payload.id;
       const updatedState = { ...state };

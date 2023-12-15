@@ -12,11 +12,23 @@
     width: 60vw;
   }
 
+  @media screen and (max-width: 450px) {
+    height: 80px;
+    line-height: var(--font-size-s);
+    font-size: var(--font-size-s);
+    justify-content: center;
+    padding: 1px 2px;
+  }
+  @media screen and (max-width: 420px) {
+    height: 96px;
+    display: compact;
+  }
+
   .titleAndInfoWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
 
     .propertyTitle {
       @include mixins.defaultMainText;
