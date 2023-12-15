@@ -1,7 +1,7 @@
 @use "src/styles/mixins" as mixins;
 
 /* reset */
-.danger{
+.danger {
   font-size: 2px;
   color: var(--color-danger-100) !important;
   font-weight: 700;
@@ -15,22 +15,21 @@
   line-height: 1;
   color: var(--color-light-900);
   background-color: var(--color-dark-300);
-  //box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   user-select: none;
   animation-duration: 800ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
-.tooltipContent[data-state='delayed-open'][data-side='top'] {
+.tooltipContent[data-state="delayed-open"][data-side="top"] {
   animation-name: slideDownAndFade;
 }
-.tooltipContent[data-state='delayed-open'][data-side='right'] {
+.tooltipContent[data-state="delayed-open"][data-side="right"] {
   animation-name: slideLeftAndFade;
 }
-.tooltipContent[data-state='delayed-open'][data-side='bottom'] {
+.tooltipContent[data-state="delayed-open"][data-side="bottom"] {
   animation-name: slideUpAndFade;
 }
-.tooltipContent[data-state='delayed-open'][data-side='left'] {
+.tooltipContent[data-state="delayed-open"][data-side="left"] {
   animation-name: slideRightAndFade;
 }
 
@@ -81,4 +80,3 @@
     transform: translateX(0);
   }
 }
-

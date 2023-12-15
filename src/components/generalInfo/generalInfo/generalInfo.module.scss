@@ -1,22 +1,20 @@
 @use "../../../styles/mixins" as mixins;
 
-
 .characterWrapper {
   display: flex;
   flex-direction: column;
 
-  .categoryWrapper{
+  .categoryWrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: 10px 0;
 
-    .categoryTitle{
+    .categoryTitle {
       font-size: 18px;
       @include mixins.defaultMainText;
     }
   }
-
 }
 
 .importExportWrapper {
@@ -24,9 +22,8 @@
   flex-direction: column;
 }
 
-.charOptionsBtn{
+.charOptionsBtn {
   @include mixins.defaultBorder;
-  //all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,5 +34,4 @@
   color: var(--color-accent-300);
   margin: 10px 0;
   padding: 6px 20px;
-
 }
