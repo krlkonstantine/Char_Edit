@@ -8,10 +8,15 @@
   border-radius: 4px;
   padding: 2px 12px;
 
+  @media screen and (max-width: 1200px) {
+    width: 60vw;
+  }
+
   .titleAndInfoWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 
     .propertyTitle {
       @include mixins.defaultMainText;
@@ -45,7 +50,6 @@
         &:active {
           color: var(--color-danger-100);
         }
-
       }
 
       .getDamageBtn {
@@ -63,8 +67,6 @@
         font-size: var(--font-size-xs);
         line-height: var(--line-height-s);
       }
-
     }
   }
-
 }
