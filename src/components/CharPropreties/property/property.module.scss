@@ -9,13 +9,22 @@
   padding: 2px 12px;
   flex-wrap: wrap;
 
+  @media screen and (max-width: 839px) {
+    width: 60vw;
+    height: 80px;
+    justify-content: center;
+    padding: 1px 2px;
+  }
+
   @media screen and (max-width: 450px) {
+    width: 60vw;
     height: 80px;
     line-height: var(--font-size-s);
     font-size: var(--font-size-s);
     justify-content: center;
     padding: 1px 2px;
   }
+
   @media screen and (max-width: 420px) {
     height: 96px;
     display: compact;
