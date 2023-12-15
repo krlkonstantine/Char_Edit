@@ -1,3 +1,13 @@
-.characterWrapper{
+.characterWrapper {
+  width: 25%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  .characterImg {
+    height: auto; /* Вы можете изменить этот процент по своему усмотрению */
+    width: 25vw;
+    max-width: 30vw;
+  }
 }

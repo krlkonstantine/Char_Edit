@@ -11,14 +11,13 @@ export const CharAppearance = () => {
 
     const genderInfo = useSelector((state: AppState) => state.char.gender);
     const charImg = genderInfo === 'male' ? itachiPic : kaguyaPic
-
+let a = 100
     return (
         <div className={s.characterWrapper}>
             <Image
                 className={s.characterImg}
                 src={charImg}
-                alt="Next.js Logo"
-                width={300}
+                alt="UserImage"
                 priority
             />
         </div>

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 40px;
-  width: 50%;
+  width: 47%;
   height: 80%;
 
   .propertiesWrapper {
@@ -15,9 +15,16 @@
 
       .pointsInfoWrapper {
         position: absolute;
-        top: -90%;
+        top: -100px;
         width: 100%;
 
+        //@media screen and (max-width: 2300px) {
+        //  top: 10%;
+        //}
+        //
+        //@media screen and (max-width: 2000px) {
+        //  top: 5%;
+        //}
       }
     }
   }
