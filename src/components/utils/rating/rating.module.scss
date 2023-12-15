@@ -1,7 +1,8 @@
-.ratingWrapper{
+.ratingWrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Используйте flex-start для выравнивания по верхней границе */
+  align-items: flex-start;
+  flex-wrap: wrap;
   height: 18px;
   gap: 30px;
 
@@ -10,5 +11,4 @@
     color: var(--color-accent-500);
     line-height: 18px;
   }
-
 }
