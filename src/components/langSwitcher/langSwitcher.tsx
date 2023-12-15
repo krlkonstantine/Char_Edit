@@ -11,16 +11,16 @@ export const LangSwitcher = () => {
     };
 
     return (<ToggleGroup.Root
-        className={s.ToggleGroup}
+        className={s.toggleGroup}
         type="single"
         defaultValue="center"
         aria-label="Text alignment"
         onValueChange={handleChange}
     >
-        <ToggleGroup.Item className={s.ToggleGroupItem} value="en" aria-label="Left aligned">
+        <ToggleGroup.Item className={s.toggleGroupItem} value="en" aria-label="Left aligned">
             en
         </ToggleGroup.Item>
-        <ToggleGroup.Item className={s.ToggleGroupItem} value="ru" aria-label="Right aligned">
+        <ToggleGroup.Item className={s.toggleGroupItem} value="ru" aria-label="Right aligned">
             ru
         </ToggleGroup.Item>
     </ToggleGroup.Root>)

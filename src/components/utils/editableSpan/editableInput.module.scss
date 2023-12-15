@@ -1,0 +1,15 @@
+@use "src/styles/mixins" as mixins;
+
+.editableInput {
+  @include mixins.input;
+}
+
+.displayedText {
+  @include mixins.defaultSecondText;
+  max-width: 220px;
+  font-size: var(--font-size-xxl);
+  line-height: var(--line-height-m);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word
+}

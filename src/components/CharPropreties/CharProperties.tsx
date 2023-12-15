@@ -29,7 +29,9 @@ export const CharProperties = () => {
         <div className={s.skillsandPropertiesWrapper}>
             <div className={s.propertiesWrapper}>
                 <div className={s.mainPropertiesWrapper}>
-                    <PointsInfo points={points} displayText={t('main.pointsChar')} noPointsText={t('main.noPoints')} />
+                    <div className={s.pointsInfoWrapper}>
+                        <PointsInfo points={points} displayText={t('main.pointsChar')} noPointsText={t('main.noPoints')} />
+                    </div>
                     <Property toolTipText={t('main.tooltip.basicParam')} propertyTitle={t('main.basicParam.power')} propertyValue={basicParams.power} upgradeFnc={upgradePower} />
                     <Property toolTipText={t('main.tooltip.basicParam')} propertyTitle={t('main.basicParam.dexterity')} propertyValue={basicParams.dexterity} upgradeFnc={upgradeDexterity} />
                     <Property toolTipText={t('main.tooltip.basicParam')} propertyTitle={t('main.basicParam.intelligence')} propertyValue={basicParams.intelligence} upgradeFnc={upgradeIntelligence} />

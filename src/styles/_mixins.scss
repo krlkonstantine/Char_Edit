@@ -1,0 +1,144 @@
+@mixin defaultButton {
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+  }
+}
+
+@mixin defaultMainText {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-light-900);
+}
+
+@mixin defaultSecondText {
+  color: var(--color-danger-300);
+}
+
+@mixin defaultAccentText {
+  color: var(--color-accent-300);
+  font-weight: var(--font-weight-regular);
+}
+
+@mixin defaultBorder {
+  border: 1px solid var(--color-dark-300);
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: var(--color-dark-100);
+  }
+}
+
+@mixin input {
+  all: unset;
+  cursor: text;
+  padding: 6px 15px;
+  height: 38px;
+  border-radius: 4px;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-l);
+  border: 1px solid var(--color-dark-300);
+  color: var(--dark-100);
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+
+  &:active {
+    border: 1px solid var(--color-light-100);
+    outline: none;
+    color: var(--color-light-100);
+    max-width: 220px;
+  }
+
+  &:hover {
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-accent-700);
+  }
+
+  &:disabled {
+    border: 1px solid var(--color-dark-300);
+  }
+
+  &.errorInput {
+    border: 1px solid var(--color-danger-300);
+    color: var(--color-danger-300);
+  }
+}
+
+
+@mixin toggleGroup {
+  display: inline-flex;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid var(--color-dark-300);
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    border: 1px solid var(--color-dark-100);
+  }
+
+  button {
+    @include toggleButton;
+    cursor: pointer;
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin toggleItem {
+  display: flex;
+  font-size: var(--font-size-m);
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1px;
+  transition: all 0.8s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    color: var(--color-accent-100);
+    transition: all 0.5s ease;
+  }
+
+  &[data-state='on'] {
+    background-color: var(--color-accent-500);
+    color: var(--violet-11);
+  }
+
+  &:focus {
+    position: relative;
+  }
+
+  &:first-child {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-sizing: border-box;
+  }
+}
+
+@mixin toggleButton {
+  all: unset;
+  padding: 6px 24px;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  box-sizing: border-box;
+}

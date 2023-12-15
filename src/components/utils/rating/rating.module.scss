@@ -1,0 +1,14 @@
+.ratingWrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Используйте flex-start для выравнивания по верхней границе */
+  height: 18px;
+  gap: 30px;
+
+  .skillLevelText {
+    font-size: var(--font-size-m);
+    color: var(--color-accent-500);
+    line-height: 18px;
+  }
+
+}

@@ -3,12 +3,14 @@ import {useDispatch} from 'react-redux';
 import {CharacterType} from "@/state/types";
 import {importCharacter, saveCharacter} from "@/state/character.slice";
 import {loadCharacterFulfilled} from "@/state/characterActions";
-import s from '../generalInfo/generalInfo/generalInfo.module.scss'
+import s from '../../generalInfo/generalInfo/generalInfo.module.scss'
+import {ToolTip} from "@/components/utils/toolTip/toolTip";
 
 type PropsType = {
     character: CharacterType
     importText: string
     exportText: string
+    tooltipImportText:string
 };
 
 const CharacterManagement: FC<PropsType> = (props) => {
@@ -50,7 +52,9 @@ const CharacterManagement: FC<PropsType> = (props) => {
 
     return (
         <div className={s.importExportWrapper}>
-            <button onClick={handleLoadCharacter} className={s.charOptionsBtn}>{props.importText}</button>
+            <ToolTip textForDisplay={props.tooltipImportText} isDangerAction={true}>
+                <button style={{cursor: 'help'}} onClick={handleLoadCharacter} className={s.charOptionsBtn}>{props.importText}</button>
+            </ToolTip>
             <button onClick={handleSaveCharacter} className={s.charOptionsBtn}>{props.exportText}</button>
         </div>
     );

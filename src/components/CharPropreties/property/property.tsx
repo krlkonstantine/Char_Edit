@@ -4,9 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
 import {BasicCharParams} from "@/state/types";
 import {PayloadAction} from '@reduxjs/toolkit';
-import {Rating} from "@/components/rating/rating";
+import {Rating} from "@/components/utils/rating/rating";
 import {useTranslation} from "react-i18next";
-import {ToolTip} from "@/components/toolTip/toolTip";
+import {ToolTip} from "@/components/utils/toolTip/toolTip";
 
 export type UpgradeType = 'dec' | 'inc';
 
@@ -36,6 +36,7 @@ export const Property = (props: PropertyType) => {
     }
 
     function disableTrainBtn(skillTitle: string, propertyValue: number, basicParams: BasicCharParams): boolean {
+        //TODO this one should be made a separate hook useDisableBtn
         if (points === 0) {
             return true;
         }

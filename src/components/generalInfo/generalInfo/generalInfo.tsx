@@ -4,12 +4,12 @@ import React from 'react';
 import s from './generalInfo.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "@/state/store";
-import {ToggleGender} from "@/components/tabSwitcher/tabSwitcher";
-import {EditableSpan} from "@/components/editableSpan/EditableSpan";
+import {ToggleGender} from "@/components/genderSwitcher/genderSwitcher";
+import {EditableSpan} from "@/components/utils/editableSpan/EditableSpan";
 import {resetUserData, updateName} from "@/state/character.slice";
-import CharacterManagement from "@/components/exportImport/exportImport";
+import CharacterManagement from "@/components/utils/exportImport/exportImport";
 import {useTranslation} from "react-i18next";
-import {ToolTip} from "@/components/toolTip/toolTip";
+import {ToolTip} from "@/components/utils/toolTip/toolTip";
 
 export const GeneralInfo = () => {
     const dispatch = useDispatch();
@@ -25,16 +25,16 @@ export const GeneralInfo = () => {
     }
     return (
         <div className={s.characterWrapper}>
-            <div className={s.nameWrapper}>
+            <div className={s.categoryWrapper}>
                 <span className={s.categoryTitle}>{t('main.name')}</span>
                 <EditableSpan value={generalInfo.name} onChange={onNameChangeHandler}/>
             </div>
-            <div className={s.nameWrapper}>
+            <div className={s.categoryWrapper}>
                 <span className={s.categoryTitle}>{t('main.gender')}</span>
                 <ToggleGender maleText={t('main.male')} femaleText={t('main.female')}/>
             </div>
 
-            <CharacterManagement importText={t('main.importChar')} exportText={t('main.exportChar')} character={generalInfo}/>
+            <CharacterManagement tooltipImportText={t('main.tooltip.importMsg')} importText={t('main.importChar')} exportText={t('main.exportChar')} character={generalInfo}/>
             <ToolTip textForDisplay={t('main.tooltip.resetMsg')} isDangerAction={true}>
                 <button style={{cursor: 'help'}} className={s.charOptionsBtn} onClick={resetHandler}>{t('main.reset')}</button>
             </ToolTip>

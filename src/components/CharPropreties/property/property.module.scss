@@ -1,10 +1,12 @@
+@use "src/styles/mixins" as mixins;
+
 .propertyWrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 200px;
-  height: 70px;
-  opacity: 0.8;
+  background-color: var(--color-dark-500);
+  margin-bottom: 2vh;
+  border-radius: 4px;
+  padding: 2px 12px;
 
   .titleAndInfoWrapper {
     display: flex;
@@ -12,10 +14,9 @@
     align-items: center;
 
     .propertyTitle {
-      font-size: 15px;
-      font-weight: 600;
-      color: blueviolet;
+      @include mixins.defaultMainText;
       cursor: pointer;
+      line-height: var(--line-height-l);
     }
 
     .infoWrapper {
@@ -24,37 +25,43 @@
       gap: 8px;
 
       .propertyValue {
-        color: lawngreen;
-        font-size: 17px;
+        @include mixins.defaultMainText;
       }
 
       .changeProperty {
+        all: unset;
+        @include mixins.defaultButton;
+        @include mixins.defaultSecondText;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 30px;
-        height: 30px;;
-        color: fuchsia;
-        background-color: dimgrey;
+        background-color: transparent;
 
-        .incDec {
-          background-color: cadetblue;
-
-          &:hover {
-            color: green;
-            background-color: yellow;
-          }
+        &:hover {
+          color: var(--color-danger-500);
         }
+
+        &:active {
+          color: var(--color-danger-100);
+        }
+
       }
 
       .getDamageBtn {
+        all: unset;
+        @include mixins.defaultBorder;
+        @include mixins.defaultButton;
+        @include mixins.defaultSecondText;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 4px 8px;
+        background-color: var(--color-dark-500);
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
         width: 80px;
-        color: fuchsia;
-        background-color: dimgrey;
+        font-size: var(--font-size-xs);
+        line-height: var(--line-height-s);
       }
 
     }
