@@ -20,7 +20,7 @@ Styles: CSS/SASS/SCSS
 
 Requirements:
 
-Develop a Single Page Application (SPA) allowing users to edit their character in an abstract RPG game. The result should be submitted as a link to a GitHub repository. You can share the link in response to this message on hh.ru or send it to @esperantess on Telegram.
+Develop a Single Page Application (SPA) allowing users to edit their character in an abstract RPG game. 
 
 MVP:
 
@@ -59,4 +59,3 @@ Additional Features:
 Users can export/save their characters.
 Users can import/load their characters.
 UI should be simple and intuitive.
-Feel free to adjust the wording to suit your documentation style.
